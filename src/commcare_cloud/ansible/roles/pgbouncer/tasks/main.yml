@@ -14,9 +14,9 @@
 
 - name: pgbouncer quit if version is too old
   fail:
-    msg: 
+    msg:
       - "pgbouncer version currently installed is too old"
-      - "{{ ansible_facts.packages['pgbouncer'][0].version }} < {{ pgbouncer_min_version }}"  
+      - "{{ ansible_facts.packages['pgbouncer'][0].version }} < {{ pgbouncer_min_version }}"
   when: ansible_facts.packages['pgbouncer'][0].version is version(pgbouncer_min_version, '<')
   tags:
     - configure

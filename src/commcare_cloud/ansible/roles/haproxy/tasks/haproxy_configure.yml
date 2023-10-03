@@ -15,6 +15,11 @@
   tags:
     - haproxy-logging-config
 
+- name: Ensure /etc/default/haproxy exists
+  file:
+    path: /etc/default/haproxy
+    state: touch
+
 - name: Enable haproxy service
   lineinfile:
     dest: /etc/default/haproxy
